@@ -6,7 +6,7 @@ export const MainLayout = () => {
     return (
         <div className="flex flex-col h-screen justify-between">
             <Header />
-            <div>
+            <div className="h-screen">
                 <Outlet />
             </div>
             <Footer />

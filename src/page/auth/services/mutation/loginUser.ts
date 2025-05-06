@@ -4,7 +4,7 @@ import { request } from "../../../../config/request"
 export const useLogin = () => {
     return useMutation({
         mutationFn: (values: {
-            user: string | undefined,
+            username: string | undefined,
             password: string | undefined
         }) =>
             request
