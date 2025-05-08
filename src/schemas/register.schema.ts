@@ -6,7 +6,7 @@ export const registerSchema = z
         lastName: z.string().min(6, { message: "Familiyangizni kiriting" }),
         userName: z.string().min(6, { message: "Taxallus noyob bo'lishi lozim" }),
         password: z.string().min(6, { message: "Parolni kiriting" }),
-        birthDate: z.string().min(8, { message: "Tug'ilgan sana bo'lishi kerak" }),
+        birthDate: z.coerce.date({ message: "Tug'ilgan sana bo'lishi kerak" }),
         phoneNumber: z.string().regex(/^\d{9}$/, { message: "Telefon raqam bo'lishi kerak" }),
         // confirmPassword: z.string().min(1, { message: "Ismingizni kiriting" }),
     })

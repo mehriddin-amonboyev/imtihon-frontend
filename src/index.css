@@ -16,7 +16,7 @@
   
 }
 @layer utilities{
-  .font-primay{
+  .font-primary{
     font-family: var(--font-family);
   }
   .font-secondary{

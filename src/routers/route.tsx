@@ -1,10 +1,10 @@
-import { MainLayout } from "../layout/mainlayout";
+import { Subjects } from "../page/subjects/subjects";
 
 export default [
-    // {
-    //     path: "/",
-    //     comp: Home,
-    // },
+    {
+        path: "/app/subjects",
+        comp: Subjects,
+    },
     // {
     //     path: '/404',
     //     comp: 404,

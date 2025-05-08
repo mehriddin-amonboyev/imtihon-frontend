@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const request = axios.create({
-    //Malumotlarni backenddan olish uchun url >>>
+    //Malumotlarni backenddan olish uchun baseurl >>>
     baseURL: "http://localhost:4000/api/v1",
     timeout: 10000,
 });

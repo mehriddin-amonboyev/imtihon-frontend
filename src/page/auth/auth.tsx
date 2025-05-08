@@ -3,33 +3,29 @@ import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 // import { useLogin } from "./services/mutation/loginUser";
-import { registerUser, setUser } from "../../store/redux/authSlice";
+import { registerUser } from "../../store/redux/authSlice";
 import { registerSchema } from "../../schemas/register.schema";
 import { AppDispatch, RootState } from "../../store/store";
 
-const Login = () => {
+const Auth = () => {
     // const loginMutation = useLogin();
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
-    const { loading, error } = useSelector((state: RootState) => state.auth);
+    const { error } = useSelector((state: RootState) => state.auth);
 
-    const { handleSubmit, register, formState: { errors }, } =
-        useForm({
-            resolver: zodResolver(registerSchema),
-        });
+    const { handleSubmit, register, formState: { errors }, } = useForm({ resolver: zodResolver(registerSchema) });
+
     // Register function
     const submit = (data: any) => {
         dispatch(registerUser(data))
             .unwrap()
             .then((res) => {
-                // Handle successful registration, e.g., navigate to login page
-                alert("Registration successful");
+                console.log(res);
                 navigate("/app/subjects");
             })
             .catch((error) => {
                 // Handle registration error
-                console.error("Registration failed:", error);
-                alert("Xaatolik"+ error)
+                console.error("Registration failed. ", error);
             });
     }
 
@@ -167,8 +163,20 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+            <div className="flex pt-3">
+                <span className="font-secondary font-medium leading-[130%] text-xl text-black">
+                    Ro'yxatdan o'tdingizmi?
+                </span>
+                <button
+                    onClick={() => navigate("/app/login")}
+                    className="ml-2 font-secondary font-medium leading-[130%] text-xl text-[#00ced5]"
+                >
+                    Kirish
+                </button>
+            </div>
         </div>
     )
 }
 
-export default Login;
+export default Auth;
