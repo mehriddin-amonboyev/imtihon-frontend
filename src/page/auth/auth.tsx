@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-// import { useLogin } from "./services/mutation/loginUser";
-import { registerUser } from "../../store/redux/authSlice";
+import { registerUser, setUser } from "../../store/redux/authSlice";
 import { registerSchema } from "../../schemas/register.schema";
 import { AppDispatch, RootState } from "../../store/store";
 
@@ -14,13 +13,15 @@ const Auth = () => {
     const { error } = useSelector((state: RootState) => state.auth);
 
     const { handleSubmit, register, formState: { errors }, } = useForm({ resolver: zodResolver(registerSchema) });
-
     // Register function
     const submit = (data: any) => {
         dispatch(registerUser(data))
             .unwrap()
-            .then((res) => {
-                console.log(res);
+            .then((res) => {                
+                // Handle successful registration
+                dispatch(setUser({
+                    userId: res.user.id
+                }));
                 navigate("/app/subjects");
             })
             .catch((error) => {

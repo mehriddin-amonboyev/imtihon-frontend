@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { request } from "../../config/request";
 
-export const registerUser = createAsyncThunk(
-    "auth/registerUser",
+export const registerUser = createAsyncThunk(                                   //  thunk yaratildi yani back ga so'rov 
+    "authReducer/registerUser",                                                 //  thunk nomi >>> label
     async (userData: any, { rejectWithValue }) => {
         try {
-            const response = await request.post("/auth/register", userData);
-            return response;
+            const response = await request.post("/auth/register", userData);    // backga boradigan url 
+            return response.data.data;
         } catch (error: any) {
             return rejectWithValue(error.response || "Xatolik yuz berdi😒 ");
         }
@@ -14,16 +14,20 @@ export const registerUser = createAsyncThunk(
 )
 
 export interface AuthState {
-    user: null | { token: string; };
-    loading: null | boolean;
+    user: null | { userId: string };
+    token: null | { accessToken: string; refreshToken: string }
+    loading: boolean;
     error: null | string;
 }
 
 const initialState: AuthState = {
     //userga qiymat beriladi token userga tenglashtiriladi
-    user: localStorage.getItem("token") ? {
-        token: JSON.parse(localStorage.getItem("token")!)
-    } : null,                   // localStoregedan tokenni olish
+    user: localStorage.getItem("userId") ?
+        { userId: JSON.parse(localStorage.getItem("userId")!) }
+        : null,                 //userId ni saqlash
+    token: localStorage.getItem("token") ?
+        JSON.parse(localStorage.getItem("token")!)
+        : null,                 // localStoregedan tokenni olish
     loading: false,
     error: null,
 };
@@ -35,9 +39,16 @@ const authReducer = createSlice({
     reducers: {
         // Bu yerda login yoki register qilinganda backdan token keladi 
         // shuni localStoragega yozish fun-si yozildi   
-        setUser: (state, action: PayloadAction<{ token: string }>) => {
+        setUser: (state, action: PayloadAction<{ userId: string }>) => {
             state.user = action.payload;
-            localStorage.setItem("token", JSON.stringify(action.payload)); // tokenni localStoragega saqlash
+            localStorage.setItem("userId", JSON.stringify(action.payload.userId)); // userIdni localStoragega saqlash
+        },
+        setToken: (state, action: PayloadAction<{ accessToken: string; refreshToken: string }>) => {
+            state.token = {
+                accessToken: action.payload.accessToken,
+                refreshToken: action.payload.refreshToken,
+            };
+            localStorage.setItem("token", JSON.stringify(state.token));
         },
         logout(state) {
             state.user = null;
@@ -52,8 +63,11 @@ const authReducer = createSlice({
             })
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.loading = false;
-                state.user = { token: action.payload.data?.access_token };
-                localStorage.setItem("token", JSON.stringify(action.payload.data.access_token)); // tokenni localStoragega saqlash
+                state.token = {
+                    accessToken: action.payload.data?.access_token,
+                    refreshToken: action.payload.data?.refresh_token
+                };
+                localStorage.setItem("token", JSON.stringify(state.token)); // tokenni localStoragega saqlash
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.loading = false;
@@ -62,6 +76,6 @@ const authReducer = createSlice({
     },
 });
 
-export const { setUser, logout } = authReducer.actions;
+export const { setUser, setToken, logout } = authReducer.actions;
 
 export default authReducer.reducer;
