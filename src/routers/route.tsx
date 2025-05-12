@@ -1,12 +1,13 @@
 import { Subjects } from "../page/subjects/subjects";
+import { Topics } from "../page/topics/topic";
 
 export default [
     {
         path: "/app/subjects",
         comp: Subjects,
     },
-    // {
-    //     path: '/404',
-    //     comp: 404,
-    // }
+    {
+        path: '/app/topic/:id',
+        comp: Topics,
+    }
 ]

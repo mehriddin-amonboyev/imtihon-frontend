@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { MainLayout } from './layout/mainlayout'
 import route from './routers/route';
-import Demo from './page/auth/demo';
 import Auth from './page/auth/auth';
 
 function App() {
@@ -11,10 +10,8 @@ function App() {
   const navigate = useNavigate()
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token) {
+    if (!token || token == null) {
       navigate('/app/login')
-    }else{
-      navigate('/app/subjects')
     }
   }, [navigate])
 
@@ -22,8 +19,7 @@ function App() {
     <>
       <Routes>
         <Route path="/app" element={<MainLayout />}>
-        <Route path="/app/login" element={<Auth />} />
-        <Route path="/app/demo" element={<Demo />} />
+          <Route path="/app/login" element={<Auth />} />
           {route.map(({ comp: Page, path }, index) => (
             <Route
               key={index}

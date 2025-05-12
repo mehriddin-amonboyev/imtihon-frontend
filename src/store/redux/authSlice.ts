@@ -63,11 +63,12 @@ const authReducer = createSlice({
             })
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.loading = false;
-                state.token = {
-                    accessToken: action.payload.data?.access_token,
-                    refreshToken: action.payload.data?.refresh_token
+                const tokens = {
+                    accessToken: action.payload.accessToken,
+                    refreshToken: action.payload.refreshToken
                 };
-                localStorage.setItem("token", JSON.stringify(state.token)); // tokenni localStoragega saqlash
+                state.token = tokens
+                localStorage.setItem("token", JSON.stringify(tokens)); // tokenni localStoragega saqlash
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.loading = false;
