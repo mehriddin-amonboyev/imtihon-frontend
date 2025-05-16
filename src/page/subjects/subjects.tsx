@@ -3,7 +3,6 @@ import { useSubject } from "./services/query/useSubject"
 
 export const Subjects = () => {
     const { data } = useSubject();
-    console.log(data?.data);
     return (
         <>
             <div className="flex pt-6 pl-20 gap-3">
