@@ -7,10 +7,11 @@ import Auth from './page/auth/auth';
 function App() {
 
   // use navigate hook to redirect to login page
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token || token == null) {
+    if (!token) {
       navigate('/app/login')
     }
   }, [navigate])

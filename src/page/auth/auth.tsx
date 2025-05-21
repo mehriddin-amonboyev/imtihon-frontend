@@ -6,7 +6,7 @@ import { Login } from "./components/login";
 
 const Auth = () => {
     const { error } = useSelector((state: RootState) => state.auth);
-    const [showLogin, setShowLogin] = useState(false)
+    const [showLogin, setShowLogin] = useState(true);
 
     return (
         <div className="flex flex-col h-full items-center bg-[#f5f8f8]">

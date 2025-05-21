@@ -20,11 +20,11 @@ export const Login = () => {
     const handleLogin = (values: LoginFormValues) => {
         loginMutation.mutate(values, {
             onSuccess: (data) => {
-                dispatch(setUser({ userId: data?.data.user.id }));
                 dispatch(setToken({
                     accessToken: data?.data.accessToken,
                     refreshToken: data?.data.refreshToken
                 }))
+                dispatch(setUser({ userId: data?.data.user.id }));
                 navigate("/app/subjects");
             },
             onError: (error) => {

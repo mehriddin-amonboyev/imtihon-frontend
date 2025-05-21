@@ -11,7 +11,7 @@ export const Register = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { handleSubmit, register, formState: { errors }, } = useForm({ resolver: zodResolver(registerSchema) });
     // Register function
-    const submit = (data: any) => {
+    const submit = (data: object) => {
         dispatch(registerUser(data))
             .unwrap()
             .then((res) => {

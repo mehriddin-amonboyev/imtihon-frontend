@@ -3,12 +3,12 @@ import { request } from "../../config/request";
 
 export const registerUser = createAsyncThunk(                                   //  thunk yaratildi yani back ga so'rov 
     "authReducer/registerUser",                                                 //  thunk nomi >>> label
-    async (userData: any, { rejectWithValue }) => {
+    async (userData: object, { rejectWithValue }) => {
         try {
             const response = await request.post("/auth/register", userData);    // backga boradigan url 
             return response.data.data;
-        } catch (error: any) {
-            return rejectWithValue(error.response || "Xatolik yuz berdi😒 ");
+        } catch (error: string | null| unknown) {                // errorni tutib olish
+            return rejectWithValue(error || "Xatolik yuz berdi😒 ");
         }
     }
 )
