@@ -1,15 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
-import { request } from "../../../../config/request";
+import { useQuery } from '@tanstack/react-query';
+import { request } from '../../../../config/request';
 
 export const useGetTopic = (topicId: string) => {
     
-    const token = JSON.parse(localStorage.getItem("token") || "{}")
+    const token = JSON.parse(localStorage.getItem('token') || '{}')
 
     if (!token || !token.accessToken) {
-        throw new Error("Access token is not available");
+        throw new Error('Access token is not available');
     }
     return useQuery({
-        queryKey: ["Topics"],
+        queryKey: ['Topic'],
         queryFn: () =>
             request
                 .get(`/topics/${topicId}`, {
