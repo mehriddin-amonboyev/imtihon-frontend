@@ -22,7 +22,7 @@ export interface AuthState {
 
 const initialState: AuthState = {
     //userga qiymat beriladi token userga tenglashtiriladi
-    user: localStorage.getItem("userId") ?
+    user: localStorage.getItem("userId")!== undefined ?
         { userId: JSON.parse(localStorage.getItem("userId")!) }
         : null,                 //userId ni saqlash
     token: localStorage.getItem("token") ?

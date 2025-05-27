@@ -1,5 +1,5 @@
 export const Tests = () => {
-    const { t } = useTranslation('tests');
+    // const { t } = useTranslation('tests');
     return (
         <div>
             <h1>{}</h1>

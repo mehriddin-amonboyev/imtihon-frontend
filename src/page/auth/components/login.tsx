@@ -10,6 +10,16 @@ type LoginFormValues = {
     password: string;
 };
 
+type LoginResponse = {
+    accessToken: string;
+    refreshToken: string;
+    user: {
+        id: string;
+        role: string;
+        userName: string;
+    };
+}
+
 export const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
@@ -19,12 +29,12 @@ export const Login = () => {
 
     const handleLogin = (values: LoginFormValues) => {
         loginMutation.mutate(values, {
-            onSuccess: (data) => {
+            onSuccess: (data:LoginResponse) => {                
                 dispatch(setToken({
-                    accessToken: data?.data.accessToken,
-                    refreshToken: data?.data.refreshToken
+                    accessToken: data?.accessToken,
+                    refreshToken: data?.refreshToken
                 }))
-                dispatch(setUser({ userId: data?.data.user.id }));
+                dispatch(setUser({ userId: data?.user.id }));
                 navigate("/app/subjects");
             },
             onError: (error) => {

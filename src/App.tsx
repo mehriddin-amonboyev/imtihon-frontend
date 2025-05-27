@@ -21,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/app" element={<MainLayout />}>
           <Route path="/app/login" element={<Auth />} />
+
           {route.map(({ comp: Page, path }, index) => (
             <Route
               key={index}
@@ -29,6 +30,7 @@ function App() {
               element={<Page />}
             />
           ))}
+          
         </Route>
       </Routes>
     </>

@@ -7,10 +7,6 @@ export default [
         path: "/app/subjects",
         comp: Subjects,
     },
-    // {
-    //     path: "app/login",
-    //     comp: Auth,
-    // },
     {
         path: '/app/topic/:id',
         comp: Topics,
