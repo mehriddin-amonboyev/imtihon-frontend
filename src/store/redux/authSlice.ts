@@ -22,12 +22,8 @@ export interface AuthState {
 
 const initialState: AuthState = {
     //userga qiymat beriladi token userga tenglashtiriladi
-    user: localStorage.getItem("userId")!== undefined ?
-        { userId: JSON.parse(localStorage.getItem("userId")!) }
-        : null,                 //userId ni saqlash
-    token: localStorage.getItem("token") ?
-        JSON.parse(localStorage.getItem("token")!)
-        : null,                 // localStoregedan tokenni olish
+    user: null,
+    token:  null,  
     loading: false,
     error: null,
 };
@@ -53,6 +49,7 @@ const authReducer = createSlice({
         logout(state) {
             state.user = null;
             localStorage.removeItem("token"); // tokenni localStoragedan o'chirish
+            localStorage.removeItem("user"); // userni localStoragedan o'chirish
         },
     },
     extraReducers: (builder) => {
