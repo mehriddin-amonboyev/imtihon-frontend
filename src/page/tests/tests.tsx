@@ -190,99 +190,106 @@ export const Tests = () => {
     const progress = ((currentQuestionIndex + 1) / data.questions.length) * 100;
 
     return (
-        <div className="max-w-4xl mx-auto p-4">
-            {/* Header */}
-            <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
-                <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-xl font-primary font-semibold text-gray-800">
-                        {data.title}
-                    </h1>
-                    <div className="text-lg font-mono font-bold text-red-600">
-                        {formatTime(timeLeft)}
+        <div className="flex">
+            <div className="pt-[26px] mb-[91px] px-[45px] w-full flex flex-col justify-between bg-amber-200">
+                {/* Header */}
+                <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+                    <div className="flex justify-between items-center mb-4">
+                        <h1 className="text-xl font-primary font-semibold text-gray-800">
+                            {data.title}
+                        </h1>
                     </div>
-                </div>
-                
-                {/* Progress bar */}
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div 
-                        className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${progress}%` }}
-                    ></div>
-                </div>
-                <div className="text-sm text-gray-600 text-center">
-                    Savol {currentQuestionIndex + 1} / {data.questions.length}
-                </div>
-            </div>
-
-            {/* Question */}
-            <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-                <h2 className="text-xl font-primary font-medium text-gray-800 mb-6">
-                    {currentQuestion.text}
-                </h2>
-
-                {/* Answers */}
-                <div className="space-y-3">
-                    {currentQuestion.variants?.map((item: Answer, index:number) => (
+                     {/* Progress bar */}
+                     <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
                         <div 
-                            key={item.id}
-                            className={`p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
-                                selectedAnswer === item.id
-                                    ? 'border-blue-500 bg-blue-50'
-                                    : 'border-gray-200 hover:border-gray-300'
-                            }`}
-                            onClick={() => handleAnswerSelect(item.id)}
-                        >
-                            <div className="flex items-center">
-                                <div className={`w-4 h-4 rounded-full border-2 mr-3 ${
-                                    selectedAnswer === item.id
-                                        ? 'border-blue-500 bg-blue-500'
-                                        : 'border-gray-400'
-                                }`}>
-                                    {selectedAnswer === item.id && (
-                                        <div className="w-2 h-2 bg-white rounded-full m-0.5"></div>
-                                    )}
+                            className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                            style={{ width: `${progress}%` }}
+                        ></div>
+                    </div>
+                    <div className="text-sm text-gray-600 text-center">
+                        Savol {currentQuestionIndex + 1} / {data.questions.length}
+                    </div>
+                    
+                    {/* Question */}
+                    <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+                        <h2 className="text-xl font-primary font-medium text-gray-800 mb-6">
+                            {currentQuestion.text}
+                        </h2>
+                        {/* Answers */}
+                        <div className="space-y-3">
+                            {currentQuestion.variants?.map((item: Answer, index:number) => (
+                                <div 
+                                    key={item.id}
+                                    className={`p-2 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                                        selectedAnswer === item.id
+                                            ? 'border-blue-500 bg-blue-50'
+                                            : 'border-gray-200 hover:border-gray-300'
+                                    }`}
+                                    onClick={() => handleAnswerSelect(item.id)}
+                                >
+                                    <div className="flex items-center">
+                                        <div className={`w-4 h-4 rounded-full border-2 mr-3 ${
+                                            selectedAnswer === item.id
+                                                ? 'border-blue-500 bg-blue-500'
+                                                : 'border-gray-400'
+                                        }`}>
+                                            {selectedAnswer === item.id && (
+                                                <div className="w-2 h-2 bg-white rounded-full m-0.5"></div>
+                                            )}
+                                        </div>
+                                        <div className="flex gap-3 font-secondary font-normal text-2xl text-gray-700 ">
+                                            {String.fromCharCode(65 + index)}. 
+                                            <span className="">
+                                                {item.name}
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="flex gap-3 font-secondary font-normal text-2xl text-gray-700 ">
-                                    {String.fromCharCode(65 + index)}. 
-                                    <span className="">
-                                        {item.name}
-                                    </span>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="flex justify-between items-center">
-                <button
-                    onClick={handlePreviousQuestion}
-                    disabled={currentQuestionIndex === 0}
-                    className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                >
-                    Oldingi savol
-                </button>
-
-                <div className="text-sm text-gray-600">
-                    Javob berilgan: {userAnswers.length} / {data.questions.length}
+                    </div>
+                   
                 </div>
 
-                <button
-                    onClick={handleNextQuestion}
-                    disabled={!selectedAnswer}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                >
-                    {currentQuestionIndex === data.questions.length - 1 ? 'Testni yakunlash' : 'Keyingi savol'}
-                </button>
+                
+
+                {/* Navigation */}
+                <div className="flex justify-between items-center">
+                    <button
+                        onClick={handlePreviousQuestion}
+                        disabled={currentQuestionIndex === 0}
+                        className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                        Oldingi savol
+                    </button>
+
+                    <div className="text-sm text-gray-600">
+                        Javob berilgan: {userAnswers.length} / {data.questions.length}
+                    </div>
+
+                    <button
+                        onClick={handleNextQuestion}
+                        disabled={!selectedAnswer}
+                        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                        {currentQuestionIndex === data.questions.length - 1 ? 'Testni yakunlash' : 'Keyingi savol'}
+                    </button>
+                </div>
             </div>
 
             {/* Questions overview */}
-            <div className="mt-8 bg-white rounded-lg shadow-sm p-4">
+            <div className="bg-white rounded-lg shadow-sm p-4">
+                <h3 className="text-lg font-primary font-semibold mb-4 text-gray-800">
+                    Qolgan vaqt
+                </h3>
+                <div className="text-lg font-mono font-bold text-red-600">
+                    {formatTime(timeLeft)}
+                </div>
+
                 <h3 className="text-lg font-primary font-medium mb-4 text-gray-800">
                     Savollar holati
                 </h3>
-                <div className="grid grid-cols-10 gap-2">
+                <div className="grid grid-cols-5 gap-[20px]">
                     {data.questions.map((_:Question, index:number) => {
                         const isAnswered = userAnswers.some(
                             a => a.questionId === data.questions[index].id
