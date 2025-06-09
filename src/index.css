@@ -3,23 +3,28 @@
 @import 'tailwindcss';
 
 @layer base {
-  *{
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-family);
   }
 }
+
 :root {
   --font-family: "Libre Franklin", sans-serif;
   --second-family: "Abhaya Libre", sans-serif;
-  
+  --primary: #f1f3f9;
+  --secondary-color: #fff;
+  --bg: #f5f5f5;
 }
-@layer utilities{
-  .font-primary{
+
+@layer utilities {
+  .font-primary {
     font-family: var(--font-family);
   }
-  .font-secondary{
+
+  .font-secondary {
     font-family: var(--second-family);
   }
 }

@@ -1,0 +1,43 @@
+.header__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 76px;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.header__item {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: capitalize;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+.header__item:hover {
+    color: var(--primary-color);
+}
+
+.header__button {
+    border-radius: 50px;
+    padding: 20px 40px;
+    background: linear-gradient(60deg, #1e5adb 0%, #4275e3 100%);
+    width: 152px;
+    height: 64px;
+}
+
+.header__button:hover {
+    background: linear-gradient(60deg, #4275e3 0%, #1e5adb 100%);
+}
+
+.header__button_span {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: var(--secondary-color);
+}
