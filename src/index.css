@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syne:wght@400..800&display=swap');
 @import 'tailwindcss';
 
 @layer base {
@@ -12,11 +11,13 @@
 }
 
 :root {
-  --font-family: "Libre Franklin", sans-serif;
-  --second-family: "Abhaya Libre", sans-serif;
+  --font-family: "Syne", sans-serif;
+  --second-family: "Poppins", sans-serif;
   --primary: #f1f3f9;
   --secondary-color: #fff;
   --bg: #f5f5f5;
+  --primary-blue: #1e5adb;
+  --secondary-blue: #4275e3;
 }
 
 @layer utilities {
@@ -29,10 +30,16 @@
   }
 }
 
-/* .container{
+html{
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--secondary-color) 74.52%) no-repeat;
+  /* background: var(--bg), radial-gradient(56.18% 47.06% at 100% 100%, #fbff49 0%, rgba(255, 81, 217, 0) 100%), radial-gradient(103.65% 74.42% at 0% 0%, #8e49ff 0%, rgba(83, 214, 255, 0) 100%), radial-gradient(47.7% 54.65% at 55.38% 89.56%, #8cbcfe 0%, rgba(221, 130, 255, 0) 100%), radial-gradient(89.75% 96.82% at 78.13% 29.89%, #ffe4c4 0%, rgba(48, 83, 118, 0) 100%); */
+  background-size: cover;
+}
+
+.container {
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding-left: auto;
   padding-right: auto;
-} */
+}

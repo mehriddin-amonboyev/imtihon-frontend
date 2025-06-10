@@ -18,11 +18,11 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomeLayout />}>
-          <Route path='/' element={<Home />}>
+          <Route path="/" element={<Home />}>
+            <Route path="/login" element={<Auth />} />
           </Route>
         </Route>
 
-        <Route path="/app/login" element={<Auth />} />
         {route.map(({ comp: Page, path }, index) => (
           <Route
             key={index}

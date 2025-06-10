@@ -1,27 +1,30 @@
 import styles from "./style.module.css"
 import { Button } from "@/components/ui/button"
 import { SiteLogo } from "@/assets/svg/siteLogo"
+import { useState } from "react"
 
 export const HomeHeader = () => {
+    // const [login, setLogin] = useState(false)
+
+    const handleSubmit = () => {
+
+    }
+
     return (
-        <div className="flex justify-between items-center bg-amber-200">
+        <div className="flex justify-between items-center">
             <div className="flex items-center">
                 <SiteLogo />
             </div>
-            <div>
+            <div className="flex items-center cursor-pointer gap-30">
                 <ul className={styles.header__list}>
-                    <li className={styles.header__item}> Home </li>
-                    <li className={styles.header__item}> FAQ </li>
-                    <li className={styles.header__item}> Contactas </li>
+                    <li className={styles.header__item}> Bosh sahifa </li>
+                    <li className={styles.header__item}> Yangiliklar </li>
+                    <li className={styles.header__item}> Imkoniyatlar </li>
+                    <li className={styles.header__item}> Biz bilan bo'glanish </li>
                 </ul>
-            </div>
-            <div className="flex flex-col items-center cursor-pointer">
                 <Button
-                    type="button"
-                    color="primary"
-                    className={styles.header__button}
                     onClick={() => {
-                        window.location.href = "/app/login"
+                        window.location.href = "/login"
                     }}
                 >
                     <span className={styles.header__button_span}>

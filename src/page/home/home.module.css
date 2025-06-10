@@ -1,0 +1,27 @@
+.home__title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 90px;
+    line-height: 100%;
+    text-transform: capitalize;
+    background: linear-gradient(60deg, #1e5adb 21.15%, #5aa6ed 74.52%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home__sub_title{
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 30px;
+    /* text-transform: capitalize; */
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.home__button_span {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 30px;
+    /* text-transform: capitalize; */
+    color: var(--secondary-color);
+}
