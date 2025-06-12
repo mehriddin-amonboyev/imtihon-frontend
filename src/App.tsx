@@ -19,8 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeLayout />}>
           <Route path="/" element={<Home />}>
-            <Route path="/login" element={<Auth />} />
           </Route>
+          <Route path="/login" element={<Auth />} />
         </Route>
 
         {route.map(({ comp: Page, path }, index) => (

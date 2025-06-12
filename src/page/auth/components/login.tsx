@@ -45,7 +45,7 @@ export const Login = () => {
 
     return (
         <form onSubmit={handleSubmit(handleLogin)} method="POST">
-            <div className="flex gap-[154px]">
+            <div className="flex flex-col">
                 {/* USERNAME */}
                 <div className="flex flex-col items-center gap-[5px]">
                     <label

@@ -3,9 +3,9 @@ import { HomeHeader } from "./homeHeader"
 
 export const HomeLayout = () => {
     return (
-        <div className="flex flex-col h-screen justify-between px-25 pt-[55px]">
+        <div className=" flex flex-col justify-between px-20 pt-[55px]">
             <HomeHeader />
-            <div className="h-screen">
+            <div className="">
                 <Outlet />
             </div>
         </div>

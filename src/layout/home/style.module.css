@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 76px;
+    gap: 5rem;
     padding: 10px 0;
     margin: 0;
     list-style: none;
@@ -11,8 +11,7 @@
 .header__item {
     font-family: var(--font-family);
     font-weight: 400;
-    font-size: 20px;
-    /* text-transform: capitalize; */
+    font-size: 1.75rem;
     text-align: center;
     color: rgba(0, 0, 0, 0.7);
     cursor: pointer;
@@ -20,13 +19,13 @@
 
 
 .header__item:hover {
-    color: var(--primary-color);
+    color: var(--primary);
 }
 
 .header__button_span {
     font-family: var(--font-family);
     font-weight: 400;
-    font-size: 20px;
+    font-size: 2rem;
     text-transform: capitalize;
-    color: var(--secondary-color);
+    color: var(--primary);
 }
