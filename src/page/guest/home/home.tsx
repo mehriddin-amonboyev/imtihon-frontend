@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import style from './home.module.css';
-import image from '../../assets/img/image.png'
+import image from '@/assets/img/image.png'
 import { AreaIcon1, AreaIcon2 } from '@/assets/svg/area';
 export const Home = () => {
     return (

@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomeLayout } from './layout/home/homeLayout'
+import { HomeLayout } from './layout/guest/home/homeLayout'
 import route from './routers/route';
 import Auth from './page/auth/auth';
-import { Home } from './page/home/home';
+import { Home } from './page/guest/home/home';
 
 function App() {
   // // use navigate hook to redirect to login page
@@ -18,8 +18,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomeLayout />}>
-          <Route path="/" element={<Home />}>
-          </Route>
+          <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Auth />} />
         </Route>
 
