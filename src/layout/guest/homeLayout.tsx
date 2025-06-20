@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom"
-import { HomeHeader } from "./homeHeader"
+import { HomeHeader } from "./components/homeHeader"
 
 export const HomeLayout = () => {
     return (
-        <div className=" flex flex-col justify-between px-20 pt-[55px]">
+        <div className="flex flex-col justify-between">
             <HomeHeader />
-            <div className="">
+            <div className="px-20">
                 <Outlet />
             </div>
         </div>

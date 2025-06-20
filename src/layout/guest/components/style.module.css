@@ -2,9 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
-    padding: 10px 0;
-    margin: 0;
+    gap: 20px;
     list-style: none;
 }
 
@@ -19,13 +17,12 @@
 
 
 .header__item:hover {
-    color: var(--primary);
+    color: var(--primary-blue);
 }
 
 .header__button_span {
     font-family: var(--font-family);
-    font-weight: 400;
+    font-weight: 300;
     font-size: 2rem;
-    text-transform: capitalize;
     color: var(--primary);
 }

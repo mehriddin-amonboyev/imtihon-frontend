@@ -9,7 +9,7 @@ import { store } from './store/store.ts'
 import { ThemeProvider } from './components/theme/themeProvider.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+  <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
     <QueryClientProvider client={client}>
       <Provider store={store}>
         <BrowserRouter>

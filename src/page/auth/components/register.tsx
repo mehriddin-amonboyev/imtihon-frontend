@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../../store/store";
 import { registerUser, setToken, setUser } from "../../../store/redux/authSlice";
-import { registerSchema } from "../../../schemas/register.schema";
+import { registerSchema } from "../../../utils/schemas/register.schema";
 
 export const Register = () => {
     const navigate = useNavigate();
@@ -127,12 +127,15 @@ export const Register = () => {
                 </div>
 
                 <div className="flex flex-col items-center pt-4">
-                    <label htmlFor=""
+                    <label
+                        htmlFor="yo'nalish"
                         className="pb-2 font-secondary font-medium text-xl leading-[130%] text-black"
                     >
                         Yo'nalishingiz
                     </label>
-                    <input type="text"
+                    <input
+                        type="text"
+                        id="yo'nalish"
                         className="w-full h-20 bg-[rgb(217,217,217,0.2)] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] rounded-[3px]"
                     />
                 </div>

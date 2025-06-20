@@ -1,35 +1,44 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomeLayout } from './layout/guest/home/homeLayout'
-import route from './routers/route';
+import { HomeLayout } from './layout/guest/homeLayout'
+import { studentRoutes } from './routers/route';
 import Auth from './page/auth/auth';
 import { Home } from './page/guest/home/home';
+import { AUTH_ROUTES, HOME_ROUTES } from './utils/path';
+import { AuthRequired } from './components/common/auth/AuthRequired';
+import { ROLES } from './utils/const';
+import { lazy, Suspense } from 'react';
+import { StudentLayout } from './layout/student/studentHome';
+import { NotFound } from './components/common/notFound/notFound';
 
 function App() {
-  // // use navigate hook to redirect to login page
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   if (!token) {
-  //     navigate('/app/login')
-  //   }
-  // }, [navigate])
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomeLayout />}>
-          <Route path="/" element={<Home />}/>
-          <Route path="/login" element={<Auth />} />
+        <Route path={HOME_ROUTES.home} element={<HomeLayout />}>
+          <Route path={HOME_ROUTES.home} element={<Home />} />
+          <Route path={AUTH_ROUTES.login} element={<Auth />} />
         </Route>
 
-        {route.map(({ comp: Page, path }, index) => (
-          <Route
-            key={index}
-            index={!path ? true : false}
-            path={path}
-            element={<Page />}
-          />
-        ))}
+        <Route element={<AuthRequired allowRoles={[ROLES.user, ROLES.teacher, ROLES.student]} />}>
+          <Route element={<StudentLayout />}>
+            {studentRoutes.map(({ comp, path }, index) => {
+              const Page = lazy(comp);
+              return (
+                <Route
+                  key={index}
+                  index={!path}
+                  path={path}
+                  element={
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <Page />
+                    </Suspense>
+                  }
+                />
+              )
+            })}
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Route>
       </Routes>
     </>
   )

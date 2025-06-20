@@ -2,8 +2,8 @@ import axios from "axios";
 
 export const request = axios.create({
     //Malumotlarni backenddan olish uchun baseurl >>>
-    baseURL: "http://localhost:4000/api/v1",
-    timeout: 10000,
+    baseURL: import.meta.env.VITE_BASE_URL,
+    timeout: 1000,
 });
 
 request.interceptors.response.use(
@@ -14,7 +14,7 @@ request.interceptors.response.use(
         if(error.response.status === 401) {
             // Handle token expiration
             localStorage.removeItem("token");
-            window.location.href = "/app/login";
+            window.location.href = "/login";
         }
         return Promise.reject(error);
     }

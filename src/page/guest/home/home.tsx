@@ -17,7 +17,7 @@ export const Home = () => {
                         soddalashtiradi va samaradorligini oshiradi.
                     </p>
                     <Button className='mt-6'>
-                        <span className={style.home__button_span}> Yangi Hisob </span>
+                        <span className={style.home__button_span}> Yangi hisob </span>
                     </Button>
                 </div>
                 <div className={style.home__rec}>

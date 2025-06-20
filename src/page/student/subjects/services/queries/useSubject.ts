@@ -1,5 +1,5 @@
+import { request } from "@/config/request";
 import { useQuery } from "@tanstack/react-query"
-import { request } from "../../../../config/request"
 
 export const useSubject = () => {
     const token = JSON.parse(localStorage.getItem("token") || "{}")

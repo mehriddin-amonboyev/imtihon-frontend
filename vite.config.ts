@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+
   plugins: [
     react(),
     tailwindcss()
@@ -13,6 +14,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
+    
   },
   // server:{
   //   host: '0.0.0.0', // Vite serverga har qanday tashqi kirishga ruxsat beradi

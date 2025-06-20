@@ -7,23 +7,28 @@ export const registerUser = createAsyncThunk(                                   
         try {
             const response = await request.post("/auth/register", userData);    // backga boradigan url 
             return response.data.data;
-        } catch (error: string | null| unknown) {                // errorni tutib olish
+        } catch (error: string | null | unknown) {                // errorni tutib olish
             return rejectWithValue(error || "Xatolik yuz berdi😒 ");
         }
     }
 )
 
 export interface AuthState {
-    user: null | { userId: string };
-    token: null | { accessToken: string; refreshToken: string }
+    user: null | {
+        id: string,
+        role: string
+    } // userId va userRole ni saqlash uchun;
+    token: null | {
+        accessToken: string,
+        refreshToken: string
+    }
     loading: boolean;
     error: null | string;
 }
 
 const initialState: AuthState = {
-    //userga qiymat beriladi token userga tenglashtiriladi
     user: null,
-    token:  null,  
+    token: null,
     loading: false,
     error: null,
 };
@@ -35,9 +40,11 @@ const authReducer = createSlice({
     reducers: {
         // Bu yerda login yoki register qilinganda backdan token keladi 
         // shuni localStoragega yozish fun-si yozildi   
-        setUser: (state, action: PayloadAction<{ userId: string }>) => {
+        setUser: (state, action: PayloadAction<{ id: string, role: string }>) => {
             state.user = action.payload;
-            localStorage.setItem("userId", JSON.stringify(action.payload.userId)); // userIdni localStoragega saqlash
+            state.user.id = action.payload.id; // idni statega saqlash
+            state.user.role = action.payload.role; // role ni statega saqlash
+            localStorage.setItem("user", JSON.stringify(state.user)); // userni localStoragega saqlash
         },
         setToken: (state, action: PayloadAction<{ accessToken: string; refreshToken: string }>) => {
             state.token = {
