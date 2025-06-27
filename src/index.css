@@ -1,39 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syne:wght@400..800&display=swap');
 @import 'tailwindcss';
+@import "tw-animate-css";
 
 @layer base {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-family);
+  *{
+    font-family: 'Poppins', sans-serif;
   }
-}
-
-:root {
-  --font-family: "Syne", sans-serif;
-  --second-family: "Poppins", sans-serif;
-  --primary: #f1f3f9;
-  --secondary-color: #fff;
-  --bg: #f5f5f5;
-  --primary-blue: #1e5adb;
-  --secondary-blue: #4275e3;
-}
-
-@layer utilities {
-  .font-primary {
-    font-family: var(--font-family);
+  :root {
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .font-secondary {
-    font-family: var(--second-family);
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
-
-body {
-  font-size: 16px;
-  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--secondary-color) 75%) no-repeat;
-  /* background: radial-gradient(103.65% 74.42% at 0% 0%, #c2f9f9 0%, rgba(83, 214, 255, 0) 100%), radial-gradient(44.21% 40.5% at 78.12% 29.89%, #f5ff7f 0%, rgba(48, 83, 118, 0) 100%); */
-  min-height: 100vh;
-  /* background-size: cover; */
 }

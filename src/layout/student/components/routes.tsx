@@ -19,46 +19,46 @@ export const sidebarRoutes = [
         icon: 'i-heroicons-chart-bar-20-solid',
         logo: CoursesLogo
     },
-    {
-        path: '/student/courses',
-        label: 'Kusrlar',
-        icon: 'i-heroicons-chart-bar-20-solid',
-        logo: CoursesLogo
-    },
-    {
-        path: '/student/blogs',
-        label: 'Bloglar',
-        icon: 'i-heroicons-chart-bar-20-solid',
-        logo: CoursesLogo
-    },
-    {
-        path: '/student/library',
-        label: 'Kutubxona',
-        icon: 'i-heroicons-chart-bar-20-solid',
-        logo: CoursesLogo
-    },
-    {
-        path: '/student/ratings',
-        label: 'Reyting',
-        icon: 'i-heroicons-chart-bar-20-solid',
-        logo: RaytingsLogo
-    },
-    {
-        path: '/student/profile',
-        label: 'Profile',
-        icon: 'i-heroicons-chart-bar-20-solid',
-        logo: DashboardLogo
-    },
-    {
-        path: '/student/parameters',
-        label: 'Sozlamalar',
-        icon: 'i-heroicons-chart-bar-20-solid',
-        logo: ParametersLogo
-    },
-    {
-        path: '/student/exits',
-        label: 'chiqish',
-        icon: 'i-heroicons-chart-bar-20-solid',
-        logo: SignOutLogo
-    }
+    // {
+    //     path: '/student/courses',
+    //     label: 'Kusrlar',
+    //     icon: 'i-heroicons-chart-bar-20-solid',
+    //     logo: CoursesLogo
+    // },
+    // {
+    //     path: '/student/blogs',
+    //     label: 'Bloglar',
+    //     icon: 'i-heroicons-chart-bar-20-solid',
+    //     logo: CoursesLogo
+    // },
+    // {
+    //     path: '/student/library',
+    //     label: 'Kutubxona',
+    //     icon: 'i-heroicons-chart-bar-20-solid',
+    //     logo: CoursesLogo
+    // },
+    // {
+    //     path: '/student/ratings',
+    //     label: 'Reyting',
+    //     icon: 'i-heroicons-chart-bar-20-solid',
+    //     logo: RaytingsLogo
+    // },
+    // {
+    //     path: '/student/profile',
+    //     label: 'Profile',
+    //     icon: 'i-heroicons-chart-bar-20-solid',
+    //     logo: DashboardLogo
+    // },
+    // {
+    //     path: '/student/parameters',
+    //     label: 'Sozlamalar',
+    //     icon: 'i-heroicons-chart-bar-20-solid',
+    //     logo: ParametersLogo
+    // },
+    // {
+    //     path: '/student/exits',
+    //     label: 'chiqish',
+    //     icon: 'i-heroicons-chart-bar-20-solid',
+    //     logo: SignOutLogo
+    // }
 ]

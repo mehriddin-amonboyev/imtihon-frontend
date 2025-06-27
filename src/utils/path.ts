@@ -13,6 +13,7 @@ export const STUDENT_ROUTES = {
     dashboard: '/student',
     olympiads: '/student/olympiads',
     subjects: '/student/subjects',
+    subjectsId: '/student/subjects/:id',
     topics: '/student/topics',
     topic: '/student/topic/:id',
     tests: '/student/tests',

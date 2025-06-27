@@ -7,8 +7,8 @@ import { AUTH_ROUTES, HOME_ROUTES } from './utils/path';
 import { AuthRequired } from './components/common/auth/AuthRequired';
 import { ROLES } from './utils/const';
 import { lazy, Suspense } from 'react';
-import { StudentLayout } from './layout/student/studentHome';
 import { NotFound } from './components/common/notFound/notFound';
+import UserLayout from './layout/student/userHome';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         </Route>
 
         <Route element={<AuthRequired allowRoles={[ROLES.user, ROLES.teacher, ROLES.student]} />}>
-          <Route element={<StudentLayout />}>
+          <Route element={<UserLayout />}>
             {studentRoutes.map(({ comp, path }, index) => {
               const Page = lazy(comp);
               return (

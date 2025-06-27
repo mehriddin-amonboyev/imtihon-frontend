@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 export const HomeHeader = () => {
     const navigate = useNavigate();
     return (
-        <div className="w-full flex justify-between items-center sticky bg-[var(--bg)] shadow-md z-10 px-20 py-3">
+        <div className="w-full flex justify-between items-center sticky top-0 bg-[var(--bg)] shadow-md z-10 px-20 py-3">
             <div className="flex items-center">
                 <SiteLogo />
             </div>
