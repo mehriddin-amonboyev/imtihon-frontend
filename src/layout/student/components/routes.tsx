@@ -1,20 +1,21 @@
 import { CoursesLogo, DashboardLogo, OlympiadsLogo, ParametersLogo, RaytingsLogo, SignOutLogo } from "@/assets/svg/studentDashboardLogos";
+import { STUDENT_ROUTES } from "@/utils/path";
 
 export const sidebarRoutes = [
     {
-        path: '/student',
+        path: STUDENT_ROUTES.dashboard,
         label: 'Dashboard',
         icon: 'i-heroicons-chart-bar-20-solid',
         logo: DashboardLogo
     },
     {
-        path: '/student/olympiads',
+        path: STUDENT_ROUTES.olympiads,
         label: 'Musobaqalar',
         icon: 'i-heroicons-chart-bar-20-solid',
         logo: OlympiadsLogo
     },
     {
-        path: '/student/subjects',
+        path: STUDENT_ROUTES.subjects,
         label: 'Fanlar',
         icon: 'i-heroicons-chart-bar-20-solid',
         logo: CoursesLogo

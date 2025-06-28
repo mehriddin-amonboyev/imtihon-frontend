@@ -9,10 +9,10 @@ export function Notification() {
         <Popover>
             <PopoverTrigger asChild>
                 <Button variant="ghost" className="relative cursor-pointer">
-                    <NotificationIcon className="size-8" notification={notification} />
+                    <NotificationIcon className="size-10" notification={notification} />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-64 z-50 bg-wh">
+            <PopoverContent className="w-64 z-50 bg-white">
                 <div className="font-semibold mb-2">Bildirishnomalar:</div>
                 <div className="text-sm text-muted-foreground">Hozircha bildirishnoma yo‘q</div>
             </PopoverContent>

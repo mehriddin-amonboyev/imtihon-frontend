@@ -10,20 +10,20 @@ export const AUTH_ROUTES = {
 };
 
 export const STUDENT_ROUTES = {
-    dashboard: '/student',
-    olympiads: '/student/olympiads',
-    subjects: '/student/subjects',
-    subjectsId: '/student/subjects/:id',
-    topics: '/student/topics',
-    topic: '/student/topic/:id',
-    tests: '/student/tests',
-    courses: '/student/courses',
-    blogs: '/student/blogs',
-    LIBRARY: '/student/library',
-    RATINGS: '/student/ratings',
-    PROFILE: '/student/profile',
-    PARAMETERS: '/student/parameters',
-    EXITS: '/student/exits'
+    dashboard: '/user',
+    olympiads: '/user/olympiads',
+    subjects: '/user/subjects',
+    subjectId: '/user/subjects/:subjectId',
+    // topics: '/user/topics',
+    // topic: '/user/topic/:id',
+    // tests: '/user/tests',
+    // courses: '/user/courses',
+    // blogs: '/user/blogs',
+    // LIBRARY: '/user/library',
+    // RATINGS: '/user/ratings',
+    // PROFILE: '/user/profile',
+    // PARAMETERS: '/user/parameters',
+    // EXITS: '/user/exits'
 };
 
 export const TEACHER_ROUTES = {

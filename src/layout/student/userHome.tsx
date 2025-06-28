@@ -1,17 +1,17 @@
 import { Outlet } from "react-router-dom"
-import { SidebarProvider, Separator } from "@/components"
+import { SidebarProvider } from "@/components"
 import { UserSidebar } from "./components/userSidebar"
 import { HomeNavbar } from "./components/userNavbar"
 
 export default function UserLayout() {
     return (
         <>
-            <SidebarProvider className="flex pt-10">
+            <SidebarProvider className="flex">
                 <UserSidebar />
                 <main className="w-full">
                     <HomeNavbar />
                     <div className="px-10">
-                        <Outlet/>
+                        <Outlet />
                     </div>
                 </main>
             </SidebarProvider>

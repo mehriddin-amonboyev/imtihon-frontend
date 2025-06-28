@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { useSubject } from "./services/queries/useSubject";
 import math from "@/assets/img/math.png";
 import { useNavigate } from "react-router-dom";
+import { STUDENT_ROUTES } from "@/utils/path";
+import { Card, CardTitle } from "@/components";
 
 interface Subject {
     id: string;
@@ -16,16 +18,16 @@ export const Subjects = () => {
     const { data, error, isLoading } = useSubject();
     const navigate = useNavigate();
 
-    
+
 
     return (
         <>
             <div className="flex pt-13 pl-20 gap-3">
-                <h1 className="font-primary italic font-extralight text-xl leading-[130%] text-black">
+                <CardTitle className="font-primary italic font-extralight text-xl leading-[130%] text-black">
                     Barcha fanlar ro'yxati
-                </h1>
+                </CardTitle>
             </div>
-            <div className="pt-7 px-25 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 pb-10">
+            <Card className="bg-[var(--muted-foreground)] pt-7 px-25 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 pb-10">
                 {isLoading ? (
                     <div className="flex justify-center items-center h-40 col-span-full">
                         <p className="text-gray-500">Loading...</p>
@@ -36,9 +38,9 @@ export const Subjects = () => {
                     </div>
                 ) : (
                     data?.map((items: Subject) => (
-                        <div
+                        <Card
                             key={items.id}
-                            className="max-w-[298px] w-full flex flex-col items-center py-8 px-6 rounded-[10px] bg-[var(--primary)] shadow border cursor-pointer hover:bg-gray-200 transition"
+                            className="max-w-[298px] w-full flex flex-col items-center py-8 px-6 rounded-[var(--radius)] bg-[var(--background)] shadow border cursor-pointer hover:bg-gray-200 transition"
                         >
                             <img
                                 src={math}
@@ -61,17 +63,17 @@ export const Subjects = () => {
                                 size={"sm"}
                                 className="mt-3 ml-auto"
                                 onClick={() => {
-                                    navigate(`/student/subjects/${items.id}`, {state: items});
+                                    navigate(`${STUDENT_ROUTES.subjects}/${items.id}`, { state: items });
                                 }}
                             >
-                            <span>
-                                Kirish
-                            </span>
-                        </Button>
-                        </div>
-            ))
+                                <span>
+                                    Kirish
+                                </span>
+                            </Button>
+                        </Card>
+                    ))
                 )}
-        </div >
+            </Card >
         </>
     );
 };

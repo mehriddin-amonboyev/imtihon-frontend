@@ -1,13 +1,14 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import { TestStartModal } from "@/components/modal/testStartModal";
+import { Button, Card, CardContent, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components";
+import { DialogCloseButton } from "./components/dialogModal";
 
 
-interface SubjectIdProps {
-    data: {
-        id: string;
-    };
-}
+// interface SubjectIdProps {
+//     data: {
+//         id: string;
+//     };
+// }
 export const SubjectDetail = () => {
 
     const [showModal, setShowModal] = useState(false);
@@ -29,15 +30,39 @@ export const SubjectDetail = () => {
     // const column = 
     return (
         <>
-            <div>
-                <h1>{data}</h1>
-            </div>
-            <TestStartModal
-                isOpen={showModal}
-                onConfirm={confirmStartTest}
-                onClose={closeModal}
-            // topicTitle={data?.title}
-            />
+            <Card className="mt-20 w-full h-full">
+                <CardHeader className="flex justify-between items-center">
+                    <CardTitle>
+                        {data?.name} fanidan test topshiriqlari
+                    </CardTitle>
+
+                </CardHeader>
+
+                <CardContent>
+                    <Table>
+                        <TableHeader>
+                            <TableRow className="border-none">
+                                <TableHead className="w-[35%] ">Mavzular</TableHead>
+                                <TableHead className="w-[15%] text-center">Testlar soni </TableHead>
+                                <TableHead className="w-[5%] text-center">Darajasi</TableHead>
+                                <TableHead className="w-[10%] text-center">Holati</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {data?.topics.map((topic: any) => (
+                                <TableRow key={topic.id}>
+                                    <TableCell className="font-medium">{topic.title}</TableCell>
+                                    <TableCell className="text-center">{topic.count}0</TableCell>
+                                    <TableCell className="text-center">Qiyin</TableCell>
+                                    <TableCell className="w-[10%]"><DialogCloseButton /></TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </CardContent>
+
+            </Card>
+
         </>
     )
 }

@@ -11,6 +11,7 @@ import { setToken, setUser } from "@/store/redux/authSlice"
 import { useForm } from "react-hook-form"
 import { useState } from "react"
 import { Eye, EyeOff } from "lucide-react"
+import { STUDENT_ROUTES } from "@/utils/path"
 
 type LoginFormValues = {
   userName: string;
@@ -47,7 +48,7 @@ export function LoginForm({
           refreshToken: data?.refreshToken
         }))
         dispatch(setUser({ id: data?.user.id, role: data?.user.role }));
-        navigate("/student");
+        navigate(STUDENT_ROUTES.dashboard);
       },
       onError: (error) => {
         console.error("Login failed:", error);

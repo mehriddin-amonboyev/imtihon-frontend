@@ -34,7 +34,7 @@ export const Login = () => {
                     accessToken: data?.accessToken,
                     refreshToken: data?.refreshToken
                 }))
-                dispatch(setUser({ userId: data?.user.id }));
+                dispatch(setUser({ user: data?.user.id }));
                 navigate("/app/subjects");
             },
             onError: (error) => {
