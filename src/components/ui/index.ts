@@ -16,3 +16,5 @@ export * from './sidebar';
 export * from './skeleton';
 export * from './table';
 export * from './tooltip';
+export * from './tabs';
+export * from './carousel'

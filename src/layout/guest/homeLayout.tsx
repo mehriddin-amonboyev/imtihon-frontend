@@ -3,9 +3,9 @@ import { HomeHeader } from "./components/homeHeader"
 
 export const HomeLayout = () => {
     return (
-        <div className="flex flex-col justify-between">
+        <div className="w-full flex flex-col justify-center items-center">
             <HomeHeader />
-            <div className="px-20">
+            <div className="container w-full mr-auto ml-auto">
                 <Outlet />
             </div>
         </div>

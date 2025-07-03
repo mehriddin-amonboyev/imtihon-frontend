@@ -7,14 +7,16 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     Notification,
-    Separator
+    Separator,
+    SidebarTrigger
 } from "@/components"
 
 export const HomeNavbar = () => {
     return (
-        <div className="w-full sticky top-0 z-1 bg-white">
-            <NavigationMenu className="block py-4">
-                <NavigationMenuList className="ml-auto px-10">
+        <div className="w-full bg-[var(--onyx)] rounded-[var(--fs3)]">
+            <NavigationMenu className="flex justify-between py-4 px-5">
+                <SidebarTrigger/>
+                <NavigationMenuList className="">
                     <NavigationMenuItem>
                         <Notification />
                     </NavigationMenuItem>
@@ -28,7 +30,7 @@ export const HomeNavbar = () => {
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-            <Separator orientation="horizontal" className="bg-amber-950" />
+            <Separator orientation="horizontal" className="" />
         </div>
     )
 }

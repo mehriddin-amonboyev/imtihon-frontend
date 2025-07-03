@@ -59,24 +59,26 @@ import { sidebarRoutes } from "./routes"
 
 export function UserSidebar() {
     return (
-        <Sidebar className='pt-20 flex flex-col items-center'>
+        <Sidebar variant='floating' collapsible='offcanvas' className='pt-10 flex flex-col items-center justify-center'>
             <SidebarHeader>
                 <img src={Logo} alt="Logo" className="w-32 h-auto mx-auto" />
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupContent className='pl-12'>
-                        <SidebarMenu>
-                            {sidebarRoutes.map((item) => (
+                    <SidebarGroupContent className=''>
+                        <SidebarMenu className='pt-4 flex flex-col items-center'>
+                            <div>
+                                {sidebarRoutes.map((item) => (
                                 <SidebarMenuItem key={item.label}>
-                                    <SidebarMenuButton asChild>
-                                        <Link to={item.path}>
+                                    <SidebarMenuButton asChild size={'lg'}>
+                                        <Link to={item.path} className=''>
                                             <item.logo />
-                                            <span>{item.label}</span>
+                                            <span className='fs1 text-[var(--light-gray)] hover:text-[var(--light-gray70)]'>{item.label}</span>
                                         </Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
                             ))}
+                            </div>
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>

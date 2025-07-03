@@ -10,12 +10,13 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { useNavigate } from "react-router-dom"
-
-export function DialogCloseButton() {
-
+type Topic = {
+    topicId: string;
+}
+export function DialogCloseButton(topic: Topic) {
     const navigate = useNavigate()
     const handleSubmit = () => {
-        navigate('/user')
+        navigate(`/subject/test/${topic.topicId}`)
     }
     return (
         <Dialog>
@@ -23,15 +24,15 @@ export function DialogCloseButton() {
                 <Button className="w-full"
                     size={'lg'}>Boshlash</Button>
             </DialogTrigger>
-            <DialogContent className=" min-h-[200px] sm:max-w- bg-[var(--muted-foreground)]">
+            <DialogContent className="min-h-[200px] sm:max-w- bg-[var(--onyx)]">
                 <DialogHeader>
                     <DialogTitle>Share link</DialogTitle>
                     <DialogDescription>
-                        Rostdan ham boshlaoqchimisiz
+                        Rostdan ham boshlamoqchimisiz
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="w-full items-center justify-between sm:justify-start">
-                    <DialogClose>
+                    <DialogClose asChild>
                         <Button size={'lg'}>
                             Orqaga
                         </Button>

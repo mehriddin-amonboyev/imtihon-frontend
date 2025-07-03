@@ -1,11 +1,12 @@
-import { Button } from '@/components/ui/button';
-import style from './home.module.css';
+import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
 import image from '@/assets/img/image.png'
-import { AreaIcon1, AreaIcon2 } from '@/assets/svg/area';
+import style from './home.module.css';
+import { data } from '@/page/guest/data';
+
 export const Home = () => {
     return (
         <>
-            <div className='flex justify-between'>
+            <div id='home' className='flex flex-col justify-between sm:flex-row' >
                 <div className='pt-[10rem] pb-[5rem]'>
                     <h1 className={style.home__title}>
                         O’rganishning yangi yo’llari sari
@@ -21,58 +22,70 @@ export const Home = () => {
                     </Button>
                 </div>
                 <div className={style.home__rec}>
-                    <AreaIcon1 />
-                    <AreaIcon2 />
+                    <div className='-z-10'>
+                        <svg width="477" height="495" viewBox="0 0 477 495" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="238.5" cy="247.5" rx="238.5" ry="247.5" fill="#00AAFF" />
+                        </svg>
+                    </div>
+
                     <img className={style.home__rec_img} src={image} alt="bratishka" />
                 </div>
             </div>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt praesentium, id repellendus quibusdam ipsum,
-                nihil tenetur dolorum voluptatibus vel corporis dolorem dignissimos, minus porro doloribus nesciunt nisi error
-                eos vero consequatur laborum dicta nemo delectus. Ullam, quia quaerat, magnam expedita laborum laboriosam neque
-                eum amet libero, incidunt sint quidem vitae placeat aperiam beatae ex rerum quibusdam aliquid. Animi, quidem
-                distinctio commodi a veritatis porro, eius pariatur ipsam amet minus modi asperiores praesentium. Velit quia similique
-                cum beatae inventore voluptatum ipsa delectus aspernatur deleniti, officia ex, labore laboriosam distinctio
-                esse nam quis cupiditate sapiente amet aperiam earum animi tempora. Quae dolorum in impedit quidem possimus
-                tempore iste tenetur ducimus, veniam veritatis molestias neque, nulla a nesciunt exercitationem earum odio.
-                Ducimus dolorum officia cum quidem quis explicabo saepe culpa itaque quisquam, enim voluptates quam sequi
-                mollitia fuga? Natus nesciunt aut ipsum ad perspiciatis incidunt repellendus obcaecati non facilis odio.
-                Cupiditate nostrum, fugit placeat vitae reiciendis, veniam atque praesentium molestiae non voluptatem magnam!
-                Omnis, quisquam quos. Quod voluptate eius, laudantium hic eos, nesciunt sit nihil, similique suscipit velit vero
-                asperiores totam corporis rem sunt ipsam et dolorum! Perferendis atque doloremque sint cumque recusandae? Ratione
-                omnis quod vitae dolore aliquam quas adipisci sequi hic facilis porro ducimus deserunt quos in cum neque, dolorum
-                commodi ipsam repellat dolor illo beatae. Blanditiis exercitationem voluptatum sint officiis dolorem hic nobis
-                accusamus nostrum assumenda? Ut, similique atque. Quos veritatis itaque aperiam quae hic illum expedita obcaecati
-                saepe, facere ex, veniam cum atque! Esse consectetur quidem similique magni et, officiis iusto quaerat sunt nesciu
-                nt ullam rem maiores eveniet placeat, facere quas repellendus voluptatum fuga laboriosam omnis quo sapiente dolore
-                m fugit! Labore eaque dolor tempore ducimus quam eum officiis vero odit ad velit alias natus autem hic sint nesciu
-                nt ipsa corrupti voluptas saepe, quisquam consequatur! Esse veritatis nihil iusto, et autem obcaecati inventore la
-                boriosam perspiciatis, reiciendis quia voluptatibus facere dicta nobis quisquam cupiditate tenetur. Laboriosam nes
-                ciunt, placeat laborum sapiente architecto deserunt magnam similique mollitia facere provident ab dolore velit sun
-                t accusantium doloribus quasi commodi! Totam, iste aut! Quasi ducimus magni reiciendis iusto tempore? Animi recusa
-                ndae ex in blanditiis dignissimos odit, assumenda laudantium eius magnam eum. Fuga, asperiores omnis. Voluptates q
-                uam est provident porro rem, repellendus, distinctio nulla obcaecati ex hic aliquid architecto expedita commodi sa
-                epe modi, id quisquam eligendi. Accusantium hic ullam debitis, unde perspiciatis veritatis asperiores magnam aliqu
-                am doloremque enim deserunt possimus obcaecati cumque consequuntur nostrum odio cum aspernatur voluptatem incidunt
-                suscipit iusto. Veritatis, soluta iusto. Ea at similique vero reprehenderit nemo sapiente alias officia ad vitae no
-                n? Perspiciatis omnis minus ipsum, aut explicabo ut ex magnam eos soluta doloremque, fuga possimus facere veniam si
-                nt rem dolores quia, officiis voluptates vitae obcaecati consectetur alias! Deleniti assumenda nobis amet distincti
-                o sed voluptates nihil suscipit laudantium ut nostrum culpa, illo iure quam tempore veniam, veritatis incidunt fugi
-                t provident quaerat ducimus laborum repellendus. Possimus ducimus quas cum quo consequuntur, eligendi inventore ame
-                t velit a, illum quae nam tempore voluptas suscipit animi laboriosam maxime placeat, odio nihil. Necessitatibus fug
-                a numquam pariatur blanditiis voluptatibus? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit ipsam s
-                aepe temporibus cupiditate est recusandae ex officiis praesentium labore molestiae quos assumenda ut unde, totam vo
-                luptatum incidunt, vero consequatur. Rerum ratione qui optio architecto facilis, voluptate ea saepe recusandae quas
-                i exercitationem nam, perferendis, voluptatem est nemo magnam sit deserunt id totam repellendus molestiae eligendi
-                sint accusantium tenetur. Minima sed repellat labore saepe nisi officiis facere explicabo quo deleniti at, laudanti
-                um libero. Dolorem ipsa quo dolor perferendis dignissimos temporibus velit sunt asperiores. A, nemo. Sequi minima o
-                bcaecati provident exercitationem temporibus aspernatur officiis voluptatem. Fuga error neque, voluptas eligendi vo
-                luptate reprehenderit sint dolor doloremque? Illum id optio hic animi dolorum voluptatum voluptates recusandae, qua
-                e aspernatur necessitatibus nisi magni non, sequi cumque tenetur. Dolore cumque dolorum ex, molestiae assumenda vel
-                it blanditiis sequi repellat delectus odio inventore obcaecati reiciendis rerum non saepe iusto aperiam sed. Modi v
-                oluptas cupiditate nobis officiis delectus deleniti consectetur sed eveniet sunt quas accusamus itaque enim qui opt
-                io dolore nam obcaecati unde atque laboriosam non maiores eius fuga, nihil rem. Atque repellendus laboriosam, archi
-                tecto cumque molestias voluptas fuga est soluta sapiente? Quo deserunt eligendi ad esse eos inventore? Ipsum, quide
-                m mollitia! Reiciendis quisquam magni a corporis! Animi nesciunt eligendi fuga?</p>
+
+            <Card id='courses' className='w-full min-h-[617px] mt-30 flex flex-col'>
+                <CardHeader>
+                    <CardTitle className={style.courses__title}>
+                        Popular Courses
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <Tabs defaultValue="all">
+                        <TabsList className='mr-auto ml-auto'>
+                            <TabsTrigger value="all">Barcha kurslar</TabsTrigger>
+                            <TabsTrigger value="programmers">Dasturlash</TabsTrigger>
+                            <TabsTrigger value="math">Matematika</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="all" className='px-10 py-5'>
+                            <Carousel className='pb-5'>
+                                <CarouselContent >
+                                    {data.map((item) => (
+                                        <>
+                                            <CarouselItem className="lg:basis-1/4 md:basis-1/2 sm:basis-1/2 mb-1">
+                                                <Card className='w-[295px] px-4'>
+                                                    <figure className='px-8'>
+                                                        <img src={item.img} alt="" />
+                                                    </figure>
+                                                    <CardContent>
+                                                        <span className={style.courses__corusel_span}>
+                                                            {item.create}
+                                                        </span>
+                                                        <CardTitle className={style.courses__corusel_title}>
+                                                            {item.title}
+                                                        </CardTitle>
+                                                        <CardDescription className={style.courses__corusel_describtion}>
+                                                            {item.describtion}
+                                                        </CardDescription>
+                                                    </CardContent>
+                                                    <CardFooter className='ml-auto'>
+                                                        <Button>
+                                                            Tashrif
+                                                        </Button>
+                                                    </CardFooter>
+                                                </Card>
+                                            </CarouselItem>
+                                        </>
+                                    ))}
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                            </Carousel>
+                        </TabsContent>
+                        <TabsContent value="programmers">
+                            Change your password here.
+                            </TabsContent>
+                    </Tabs>
+                </CardContent>
+            </Card>
         </>
     )
 }

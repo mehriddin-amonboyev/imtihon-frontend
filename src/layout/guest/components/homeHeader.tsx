@@ -1,26 +1,60 @@
-import styles from "./style.module.css"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { SiteLogo } from "@/assets/svg/siteLogo"
-import { useNavigate } from "react-router-dom"
+import styles from "./style.module.css"
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components"
 
 export const HomeHeader = () => {
     const navigate = useNavigate();
     return (
-        <div className="w-full flex justify-between items-center sticky top-0 bg-[var(--bg)] shadow-md z-10 px-20 py-3">
+        <NavigationMenu className="px-20 py-4 w-full flex justify-between items-center sticky top-0 z-10 bg-amber-300 dark:bg-[var(--onyx)]">
             <div className="flex items-center">
                 <SiteLogo />
             </div>
-            <div className="flex justify-evenly items-center cursor-pointer gap-6">
-                <ul className={styles.header__list}>
-                    <li className={styles.header__item}> Bosh sahifa </li>
-                    <li className={styles.header__item}> Yangiliklar </li>
-                    <li className={styles.header__item}> Imkoniyatlar </li>
-                    <li className={styles.header__item}> Biz bilan bo'glanish </li>
-                </ul>
-                <Button onClick={() => { navigate("/login") }} >
-                    <span className={styles.header__button_span}> Kirish </span>
+            <NavigationMenuList className={styles.header__list}>
+                <NavigationMenuItem
+                    className={styles.header__item}
+                    onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                    Bosh sahifa
+                </NavigationMenuItem>
+                <NavigationMenuItem
+                    onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
+                    className={styles.header__item}
+                >
+                    Kurslar
+                </NavigationMenuItem>
+                <NavigationMenuItem
+                    onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                    className={styles.header__item}
+                >
+                    Imkoniyatlar
+                </NavigationMenuItem>
+                <NavigationMenuItem
+                    className={styles.header__item}
+                    onClick={()=>document.getElementById('home')?.scrollIntoView({behavior:'smooth'})}
+                >
+                    Biz bilan bo'glanish
+                </NavigationMenuItem>
+            </NavigationMenuList>
+            <div className="flex gap-2.5">
+                <Button
+                    variant={'default'}
+                    size={'lg'}
+                    className="cursor-pointer"
+                    onClick={() => { navigate("/login") }}
+                >
+                    <span className="text-[var(--blue)]"> Kirish </span>
+                </Button>
+                <Button
+                    variant={'primary'}
+                    size={'lg'}
+                >
+                    <span>
+                        Ro'yxatdan o'tish
+                    </span>
                 </Button>
             </div>
-        </div>
+        </NavigationMenu>
     )
 }

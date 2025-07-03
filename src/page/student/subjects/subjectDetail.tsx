@@ -1,33 +1,11 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
-import { Button, Card, CardContent, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components";
+import { useLocation} from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components";
 import { DialogCloseButton } from "./components/dialogModal";
 
-
-// interface SubjectIdProps {
-//     data: {
-//         id: string;
-//     };
-// }
 export const SubjectDetail = () => {
-
-    const [showModal, setShowModal] = useState(false);
-
-    // useNavigate hook to navigate to different pages
-    const navigate = useNavigate();
-    const param = useParams<{ id: string }>();
     const location = useLocation();
     const data = location.state
-    console.log("SubjectId component rendered with data:", data);
-
-    const handleStartTest = () => { setShowModal(true); }
-    const closeModal = () => { setShowModal(false); }
-
-    const confirmStartTest = () => {
-        setShowModal(false);
-        navigate(`/app/test/${param.id}`);
-    }
-    // const column = 
+    console.log("data",data)
     return (
         <>
             <Card className="mt-20 w-full h-full">
@@ -54,7 +32,7 @@ export const SubjectDetail = () => {
                                     <TableCell className="font-medium">{topic.title}</TableCell>
                                     <TableCell className="text-center">{topic.count}0</TableCell>
                                     <TableCell className="text-center">Qiyin</TableCell>
-                                    <TableCell className="w-[10%]"><DialogCloseButton /></TableCell>
+                                    <TableCell className="w-[10%]"><DialogCloseButton topicId={topic.id}/></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

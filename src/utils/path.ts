@@ -27,9 +27,5 @@ export const STUDENT_ROUTES = {
 };
 
 export const TEACHER_ROUTES = {
-    DASHBOARD: '/teacher/dashboard',
-    COURSES: '/teacher/courses',
-    STUDENTS: '/teacher/students',
-    PROFILE: '/teacher/profile',
-    SETTINGS: '/teacher/settings'
+    createTest: 'create-test'
 };

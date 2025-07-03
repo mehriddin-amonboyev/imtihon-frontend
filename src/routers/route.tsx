@@ -1,4 +1,4 @@
-import { STUDENT_ROUTES } from "@/utils/path";
+import { STUDENT_ROUTES, TEACHER_ROUTES } from "@/utils/path";
 
 export const studentRoutes = [
     {
@@ -16,11 +16,11 @@ export const studentRoutes = [
     {
         path: STUDENT_ROUTES.subjectId, //   /user/subjects/:id
         comp: () => import("@/page/student/subjects/subjectDetail").then(m => ({ default: m.SubjectDetail })),
-    }
-    // {
-    //     path: '/topic/:id',
-    //     comp: Topics,
-    // },
+    },
+    {
+        path: TEACHER_ROUTES.createTest,
+        comp: ()=> import('@/page/teacher/createTest/createTest').then(m=>({default:m.CreateTest}))
+    },
     // {
     //     path:"/test/:topicId",
     //     comp: Tests

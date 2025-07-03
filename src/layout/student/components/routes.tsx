@@ -1,29 +1,30 @@
-import { CoursesLogo, DashboardLogo, OlympiadsLogo, ParametersLogo, RaytingsLogo, SignOutLogo } from "@/assets/svg/studentDashboardLogos";
-import { STUDENT_ROUTES } from "@/utils/path";
+import { CoursesLogo, DashboardLogo, OlympiadsLogo } from "@/assets/svg/studentDashboardLogos";
+import { STUDENT_ROUTES, TEACHER_ROUTES } from "@/utils/path";
 
 export const sidebarRoutes = [
     {
         path: STUDENT_ROUTES.dashboard,
-        label: 'Dashboard',
-        icon: 'i-heroicons-chart-bar-20-solid',
+        label: 'Bosh sahifa',
         logo: DashboardLogo
     },
     {
         path: STUDENT_ROUTES.olympiads,
         label: 'Musobaqalar',
-        icon: 'i-heroicons-chart-bar-20-solid',
         logo: OlympiadsLogo
     },
     {
         path: STUDENT_ROUTES.subjects,
         label: 'Fanlar',
-        icon: 'i-heroicons-chart-bar-20-solid',
         logo: CoursesLogo
     },
+    {
+        path: TEACHER_ROUTES.createTest,
+        label: "Test Qo'shish",
+        logo: CoursesLogo
+    }
     // {
     //     path: '/student/courses',
     //     label: 'Kusrlar',
-    //     icon: 'i-heroicons-chart-bar-20-solid',
     //     logo: CoursesLogo
     // },
     // {
