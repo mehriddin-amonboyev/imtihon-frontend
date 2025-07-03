@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { SiteLogo } from "@/assets/svg/siteLogo"
 import styles from "./style.module.css"
@@ -7,7 +7,7 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/compon
 export const HomeHeader = () => {
     const navigate = useNavigate();
     return (
-        <NavigationMenu className="px-20 py-4 w-full flex justify-between items-center sticky top-0 z-10 bg-amber-300 dark:bg-[var(--onyx)]">
+        <NavigationMenu className="px-20 py-4 w-full flex justify-between items-center sticky top-0 z-10 bg-[var(--bg)] dark:bg-[var(--onyx)]">
             <div className="flex items-center">
                 <SiteLogo />
             </div>
@@ -22,7 +22,9 @@ export const HomeHeader = () => {
                     onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
                     className={styles.header__item}
                 >
+                    <Link to={'#courses'}>
                     Kurslar
+                    </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem
                     onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
