@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
     DialogFooter,
@@ -12,36 +11,46 @@ import {
 import { useNavigate } from "react-router-dom"
 type Topic = {
     topicId: string;
+    title: string;
 }
-export function DialogCloseButton(topic: Topic) {
+export function DialogCloseButton({topic}: {topic: Topic}) {
     const navigate = useNavigate()
     const handleSubmit = () => {
         navigate(`/subject/test/${topic.topicId}`)
     }
     return (
         <Dialog>
-            <DialogTrigger asChild className="">
-                <Button className="w-full"
-                    size={'lg'}>Boshlash</Button>
+            <DialogTrigger asChild>
+                <Button
+                    className="w-full"
+                    size={'lg'}>
+                    Boshlash
+                </Button>
             </DialogTrigger>
-            <DialogContent className="min-h-[200px] sm:max-w- bg-[var(--onyx)]">
+
+            <DialogContent className="min-h-[200px] bg-[var(--bg)] dark:bg-gray-500">
                 <DialogHeader>
-                    <DialogTitle>Share link</DialogTitle>
+                    <DialogTitle>{topic.title}</DialogTitle>
                     <DialogDescription>
                         Rostdan ham boshlamoqchimisiz
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="w-full items-center justify-between sm:justify-start">
-                    <DialogClose asChild>
+                    {/* <DialogClose asChild>
                         <Button size={'lg'}>
                             Orqaga
                         </Button>
-                    </DialogClose>
-                    <Button size={'lg'} onClick={handleSubmit}>
+                    </DialogClose> */}
+                    <Button
+                        size={'lg'}
+                        onClick={handleSubmit}
+                        className="ml-auto"
+                    >
                         Boshlash
                     </Button>
                 </DialogFooter>
             </DialogContent>
+
         </Dialog>
     )
 }

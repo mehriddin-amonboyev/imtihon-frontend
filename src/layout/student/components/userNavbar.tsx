@@ -2,6 +2,7 @@ import {
     Avatar,
     AvatarFallback,
     AvatarImage,
+    Card,
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuLink,
@@ -13,10 +14,10 @@ import {
 
 export const HomeNavbar = () => {
     return (
-        <div className="w-full bg-[var(--onyx)] rounded-[var(--fs3)]">
-            <NavigationMenu className="flex justify-between py-4 px-5">
-                <SidebarTrigger/>
-                <NavigationMenuList className="">
+        <Card className="w-full bg-[var(--bg)] sticky top-0">
+            <NavigationMenu className="flex justify-between px-5">
+                <SidebarTrigger className="-ml-1"/>
+                <NavigationMenuList>
                     <NavigationMenuItem>
                         <Notification />
                     </NavigationMenuItem>
@@ -30,7 +31,6 @@ export const HomeNavbar = () => {
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-            <Separator orientation="horizontal" className="" />
-        </div>
+        </Card>
     )
 }

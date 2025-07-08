@@ -59,7 +59,7 @@ import { sidebarRoutes } from "./routes"
 
 export function UserSidebar() {
     return (
-        <Sidebar variant='floating' collapsible='offcanvas' className='pt-10 flex flex-col items-center justify-center'>
+        <Sidebar className='pt-10 flex flex-col items-center justify-center'>
             <SidebarHeader>
                 <img src={Logo} alt="Logo" className="w-32 h-auto mx-auto" />
             </SidebarHeader>

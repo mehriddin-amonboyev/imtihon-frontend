@@ -50,7 +50,7 @@ export const Subjects = () => {
                             <CardTitle className="pb-1 text-center">
                                 {items.name}
                             </CardTitle>
-                            <Separator className="bg-amber-600"/>
+                            <Separator className="bg-gray-800"/>
                             <div className="w-full px-4 py-3">
                                 <div className="rounded-[3px] bg-[rgba(217,217,217,0.3)] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] text-center">
                                     <p className="font-secondary font-normal text-[13px] leading-[130%] text-[var(--white1)]">

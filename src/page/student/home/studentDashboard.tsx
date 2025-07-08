@@ -1,3 +1,4 @@
+import { Card } from "@/components";
 import { useProfile } from "./service/query/useProfile";
 
 export const StudentHome = () => {
@@ -7,9 +8,11 @@ export const StudentHome = () => {
     if (error) return <div>Error: {error.message}</div>;
     return (
         <>
-            <h1 className="text-4xl font-bold text-center text-[#0d0d0d] mt-10">
-                Xush kelibsiz {data?.firstName} {data?.lastName}!
-            </h1>
+            <Card className="h-full">
+                <h1 className="text-4xl font-bold text-center text-[#0d0d0d] mt-10">
+                    Xush kelibsiz {data?.firstName} {data?.lastName}!
+                </h1>
+            </Card>
 
         </>
     )
