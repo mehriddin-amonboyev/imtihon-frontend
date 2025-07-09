@@ -19,10 +19,10 @@ export const studentRoutes = [
     },
     {
         path: TEACHER_ROUTES.createTest,
-        comp: ()=> import('@/page/teacher/createTest/createTest').then(m=>({default:m.CreateTest}))
+        comp: () => import('@/page/teacher/createTest/createTest').then(m => ({ default: m.CreateTest }))
     },
-    // {
-    //     path:"/test/:topicId",
-    //     comp: Tests
-    // }
+    {
+        path: STUDENT_ROUTES.testId,
+        comp: () => import('@/page/student/tests/tests').then(m => ({ default: m.Tests })),
+    }
 ]

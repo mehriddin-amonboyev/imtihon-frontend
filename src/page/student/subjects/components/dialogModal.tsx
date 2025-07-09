@@ -8,15 +8,16 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import { STUDENT_ROUTES } from "@/utils/path";
 import { useNavigate } from "react-router-dom"
 type Topic = {
-    topicId: string;
+    id: string;
     title: string;
 }
 export function DialogCloseButton({topic}: {topic: Topic}) {
     const navigate = useNavigate()
     const handleSubmit = () => {
-        navigate(`/subject/test/${topic.topicId}`)
+        navigate(`${STUDENT_ROUTES.test}/${topic.id}`)
     }
     return (
         <Dialog>

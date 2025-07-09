@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useGetTopic } from "../topics/service/query/useGetTopic";
+import { useGetTopic } from "../../topics/service/query/useGetTopic";
+import { Card } from "@/components";
 
 interface Answer {
     id: string;
@@ -20,9 +21,8 @@ interface UserAnswer {
 
 export const Tests = () => {
     const param = useParams<{ topicId: string }>();
-    // const navigate = useNavigate();
     const { data, isLoading, error } = useGetTopic(param.topicId as string);
-    console.log(data?.questions);
+    console.log('param', data);
     
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
@@ -132,7 +132,7 @@ export const Tests = () => {
 
     if (error) {
         return (
-            <div className="flex items-center justify-center min-h-screen">
+            <div className="flex items-center justify-center h-full">
                 <div className="text-xl font-primary text-red-600">Xatolik yuz berdi</div>
             </div>
         );
@@ -140,7 +140,7 @@ export const Tests = () => {
 
     if (!data?.questions?.length) {
         return (
-            <div className="flex items-center justify-center min-h-screen">
+            <div className="flex items-center justify-center h-full">
                 <div className="text-xl font-primary">Savollar topilmadi</div>
             </div>
         );
@@ -190,7 +190,7 @@ export const Tests = () => {
     const progress = ((currentQuestionIndex + 1) / data.questions.length) * 100;
 
     return (
-        <div className="flex">
+        <Card className="flex h-full">
             <div className="pt-[26px] mb-[91px] px-[45px] w-full flex flex-col justify-between bg-amber-200">
                 {/* Header */}
                 <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
@@ -320,6 +320,6 @@ export const Tests = () => {
                     })}
                 </div>
             </div>
-        </div>
+        </Card>
     );
 };

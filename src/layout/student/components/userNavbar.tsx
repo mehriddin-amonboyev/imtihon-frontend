@@ -3,12 +3,12 @@ import {
     AvatarFallback,
     AvatarImage,
     Card,
+    ModeToggle,
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
     Notification,
-    Separator,
     SidebarTrigger
 } from "@/components"
 
@@ -20,6 +20,9 @@ export const HomeNavbar = () => {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <Notification />
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <ModeToggle/>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink href="/user/profile">
