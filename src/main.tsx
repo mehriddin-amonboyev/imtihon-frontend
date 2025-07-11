@@ -6,8 +6,10 @@ import { Provider } from 'react-redux'
 import App from './App.tsx'
 import './index.css'
 import { store } from './store/store.ts'
+import { ThemeProvider } from '@/components'
 
 createRoot(document.getElementById('root')!).render(
+  <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
     <QueryClientProvider client={client}>
       <Provider store={store}>
         <BrowserRouter>
@@ -15,4 +17,5 @@ createRoot(document.getElementById('root')!).render(
         </BrowserRouter>
       </Provider>
     </QueryClientProvider>
+  </ThemeProvider>
 )

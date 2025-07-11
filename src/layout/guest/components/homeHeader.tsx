@@ -38,12 +38,12 @@ export const HomeHeader = () => {
             </NavigationMenuList>
             <div className="flex gap-2.5">
                 <Button
-                    variant={'default'}
+                    variant={'outline'}
                     size={'lg'}
                     className="cursor-pointer"
                     onClick={() => { navigate("/login") }}
                 >
-                    <span className="text-[var(--blue)]"> Kirish </span>
+                    <span className="text-[var(--color-primary)]"> Kirish </span>
                 </Button>
                 <Button
                     variant={'primary'}

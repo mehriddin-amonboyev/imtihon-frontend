@@ -1,9 +1,23 @@
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { AppDispatch } from "../../../store/store";
-import { useLogin } from "../services/mutation/loginUser";
-import { setToken, setUser } from "../../../store/redux/authSlice";
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "@/store/store"
+import { useLogin } from "../services/mutation/loginUser"
+import { setToken, setUser } from "@/store/redux/authSlice"
+import { STUDENT_ROUTES } from "@/utils/path"
+import { useForm } from "react-hook-form"
+import { Eye, EyeOff } from "lucide-react"
 
 type LoginFormValues = {
     userName: string;
@@ -20,7 +34,11 @@ type LoginResponse = {
     };
 }
 
-export const Login = () => {
+export function LoginForm({
+    className,
+    ...props
+}: React.ComponentProps<"div">) {
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
     const loginMutation = useLogin();
@@ -29,13 +47,13 @@ export const Login = () => {
 
     const handleLogin = (values: LoginFormValues) => {
         loginMutation.mutate(values, {
-            onSuccess: (data:LoginResponse) => {                
+            onSuccess: (data: LoginResponse) => {
                 dispatch(setToken({
                     accessToken: data?.accessToken,
                     refreshToken: data?.refreshToken
                 }))
-                dispatch(setUser({ user: data?.user.id }));
-                navigate("/app/subjects");
+                dispatch(setUser({ id: data?.user.id, role: data?.user.role }));
+                navigate(STUDENT_ROUTES.dashboard);
             },
             onError: (error) => {
                 console.error("Login failed:", error);
@@ -44,63 +62,81 @@ export const Login = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(handleLogin)} method="POST">
-            <div className="flex flex-col">
-                {/* USERNAME */}
-                <div className="flex flex-col items-center gap-[5px]">
-                    <label
-                        htmlFor="userName"
-                        className="pt-5 font-secondary font-medium text-xl leading-[130%] text-black"
+        <div className={cn("flex flex-col gap-6", className)} {...props}>
+            <Card>
+                <CardHeader className="text-center">
+                    {/* <SiteLogo /> */}
+                    <CardTitle >Login to your account</CardTitle>
+                    <CardDescription>
+                        Username va Parolingizni kiritib kirish tugmasini bosing
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <form
+                        onSubmit={handleSubmit(handleLogin)}
+                        method="POST"
                     >
-                        Username
-                    </label>
-                    <div className="relative">
-                        <span className="font-secondary font-medium absolute left-3 top-1/2 -translate-y-1/2 text-black select-none">
-                            @ |
-                        </span>
-                        <input
-                            type="text"
-                            id="userName"
-                            {...register("userName", { required: "Username kiriting" })}
-                            className="pl-15 py-1.5 font-secondary font-medium text-xl leading-[130%] bg-[rgb(217,217,217,0.2)] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] rounded-[3px]"
-                        />
-                        {errors.userName && (
-                            <p className="text-red-500 text-sm">{errors.userName.message}</p>
-                        )}
-                    </div>
-                </div>
-
-                {/* PASSWORD */}
-                <div className="flex flex-col items-center gap-[5px]">
-                    <label
-                        htmlFor="password"
-                        className="pt-5 font-secondary font-medium text-xl leading-[130%] text-black"
-                    >
-                        Parol
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        {...register("password", { required: "Parol kiriting" })}
-                        className="w-full py-1.5 px-4 font-secondary font-medium text-xl leading-[130%] bg-[rgb(217,217,217,0.2)] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] rounded-[3px]"
-                    />
-                    {errors.password && (
-                        <p className="text-red-500 text-sm">{errors.password.message}</p>
-                    )}
-                </div>
-            </div>
-
-            {/* SUBMIT */}
-            <div className="flex pt-10">
-                <button
-                    type="submit"
-                    className="mx-auto py-1 px-9 rounded-[10px] bg-[#00ced5] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] cursor-pointer"
-                >
-                    <span className="font-secondary font-medium leading-[130%] text-xl text-black">
-                        Kirish
-                    </span>
-                </button>
-            </div>
-        </form>
-    );
-};
+                        <div className="flex flex-col gap-6">
+                            <div className="grid gap-3">
+                                <Label htmlFor="userName">Username</Label>
+                                <Input
+                                    id="userName"
+                                    type="text"
+                                    placeholder="Username"
+                                    {...register(
+                                        "userName",
+                                        { required: "Username kiriting" }
+                                    )}
+                                />
+                                {errors.userName && (
+                                    <p className="text-red-500 text-sm">{errors.userName.message}</p>
+                                )}
+                            </div>
+                            <div className="grid gap-3">
+                                <div className="flex items-center">
+                                    <Label htmlFor="password">Password</Label>
+                                    <a
+                                        href="/"
+                                        className="ml-auto inline-block text-xs underline-offset-4 hover:underline"
+                                    >
+                                        Parolingiz esdan chiqdimi
+                                    </a>
+                                </div>
+                                <div className="relative">
+                                    <Input
+                                        id="password"
+                                        type={showPassword ? 'text' : "password"}
+                                        placeholder="Password"
+                                        {...register("password", { required: "Parol kiriting" })}
+                                    />
+                                    <Button
+                                        type="button"
+                                        variant={"secondary"}
+                                        className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 bg-muted"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                    >
+                                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                                    </Button>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-3">
+                                <Button type="submit" className="w-full">
+                                    Kirish
+                                </Button>
+                                <Button variant="outline" className="w-full">
+                                    Google orqali kirish
+                                </Button>
+                            </div>
+                        </div>
+                        <div className="mt-4 text-center text-sm">
+                            Don&apos;t have an account?{" "}
+                            <a href="/register" className="underline underline-offset-4">
+                                Ro'yxatdan o'tish
+                            </a>
+                        </div>
+                    </form>
+                </CardContent>
+            </Card>
+        </div>
+    )
+}

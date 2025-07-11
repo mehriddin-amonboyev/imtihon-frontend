@@ -8,12 +8,11 @@ import { ROLES } from './utils/const';
 import { lazy, Suspense } from 'react';
 import { NotFound } from './components/common/notFound/notFound';
 import UserLayout from './layout/student/userHome';
-import { ThemeProvider, AuthRequired } from './components';
+import { AuthRequired } from './components';
 
 function App() {
   return (
     <>
-      <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
         <Routes>
           <Route path={HOME_ROUTES.home} element={<HomeLayout />}>
             <Route path={HOME_ROUTES.home} element={<Home />} />
@@ -41,7 +40,6 @@ function App() {
             </Route>
           </Route>
         </Routes>
-      </ThemeProvider>
     </>
   )
 }

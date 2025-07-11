@@ -65,19 +65,21 @@ export function UserSidebar() {
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupContent className=''>
+                    <SidebarGroupContent>
                         <SidebarMenu className='pt-4 flex flex-col items-center'>
                             <div>
                                 {sidebarRoutes.map((item) => (
-                                <SidebarMenuItem key={item.label}>
-                                    <SidebarMenuButton asChild size={'lg'}>
-                                        <Link to={item.path} className=''>
-                                            <item.logo />
-                                            <span className='fs1 text-[var(--light-gray)] hover:text-[var(--light-gray70)]'>{item.label}</span>
-                                        </Link>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
+                                    <SidebarMenuItem key={item.label}>
+                                        <SidebarMenuButton asChild size={'lg'}>
+                                            <Link to={item.path}>
+                                                <item.logo />
+                                                <span className='fs1 text-[var(--light-gray)] hover:text-[var(--light-gray70)]'>
+                                                    {item.label}
+                                                </span>
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                ))}
                             </div>
                         </SidebarMenu>
                     </SidebarGroupContent>

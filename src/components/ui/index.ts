@@ -17,4 +17,8 @@ export * from './skeleton';
 export * from './table';
 export * from './tooltip';
 export * from './tabs';
-export * from './carousel'
+export * from './carousel';
+export * from './progress';
+export * from './textarea';
+export * from './radio-group';
+export * from './scroll-area';
